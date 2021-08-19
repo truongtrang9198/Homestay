@@ -1,0 +1,57 @@
+
+   html,body{
+  background-color:#fafafa;
+  }
+/* header */
+  header{
+    height: 150px;
+    background-color: #1D5B8F;
+
+  }
+  header >h3{
+    font-family:georgia;
+    color:white;
+    padding-top: 10px;
+  }
+  .form-search{
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+  }
+  #Tiemkiem{
+    width: 400px;
+  }
+  .btn{
+    width: 50px;
+    height: auto;
+  }
+/* footer */
+  footer{
+    background-color: #1D5B8F;
+    font-family:arial;
+    padding-left: 50px;
+  }
+  #loiket{
+    text-align: center;
+    color: white;
+    font-family:Dangrek;
+  }
+/* navbar */
+.dropdown-item:hover{
+  background-color: #fafafa;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+nav{
+  font-family: sans-serif;
+}
+/* menu */
+  .dropleft{
+    position: absolute;
+    right: 0;
+  }
+  /* Noi dung hthi */
+  .noidunght{
+    margin-left: 10px;
+
+  }
