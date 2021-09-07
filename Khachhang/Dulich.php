@@ -36,7 +36,6 @@
   <body>
     <div class="body">
 
-
     <br>
     <div class="iframe embed-responsive embed-responsive-21by9">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/1GXSmIuRKy8" title="YouTube video player"
