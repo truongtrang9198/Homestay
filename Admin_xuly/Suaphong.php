@@ -60,8 +60,8 @@
               </div>
             </div>
               <div class="row">
-                <input type="button" class="btn btn-primary" name="" value="Hủy" id="reset">&ensp;
-                <input type="button" class="btn btn-primary" name="themphong" id="themphong" value="Lưu thay đổi">
+                <button type="button" class="btn btn-danger" name="" value="Hủy" id="reset">Hủy bỏ</button>&ensp;
+                <button type="button" class="btn btn-primary" name="themphong" id="themphong" value="">Lưu thay đổi</button>
 
               </div>
           </div>
