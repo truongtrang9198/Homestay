@@ -7,7 +7,7 @@
   $sdt  = $_POST['sdt'];
   $cmnd  = $_POST['cmnd'];
   $diachi  = $_POST['diachi'];
-  $chucvu  = $_POST['chucvu'];
+  $congviec  = $_POST['congviec'];
   $n = "0";
   $sql = "select SDT_NV,CMND_NV from Nhanvien where not MSNV = $manv";
   $query = mysqli_query($conn,$sql);
@@ -22,11 +22,11 @@
   }else {
     $n="0";
   }
-  
+
   //  update thong tin
   if($n!="1"){
     $sql = "update Nhanvien set Hoten_NV = '$hoten',NgaysinhNV = '$ngaysinh', Gt='$gioitinh',CMND_NV='$cmnd',SDT_NV='$sdt',
-    DiaChi_NV ='$diachi',Chucvu='$chucvu' where MSNV = '$manv'";
+    DiaChi_NV ='$diachi',Congviec='$congviec' where MSNV = '$manv'";
     if(mysqli_query($conn,$sql)){
     echo("Thành công!");
 
@@ -34,7 +34,7 @@
     echo("Lỗi hệ thống!");
     }
   }
- 
+
 
 
 
