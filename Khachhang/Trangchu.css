@@ -2,31 +2,53 @@
    html,body{
   background-color:#fafafa;
   }
+  .body{
+    padding-top: 20px;
+  }
+
 /* header */
-  header{
-    height: 150px;
-    background-color: #1D5B8F;
+header{
+  height:150px;
+  background-color:#1D5B8F;
+}
+  nav{
+    background-color:#1D5B8F;
+  }
+  #nav-header{
+  overflow: hidden;
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  position: fixed; /* Sticky/fixed navbar */
+  width: 100%;
+  top: 0; /* At the top */
+  z-index: 99;
+ }
+  a{
+    color: white;
+  }
+
+  a:hover{
+    color: black;
+  }
+  .nav-item{
+    transition: 0.3s;
+  }
+  .nav-item:hover{
+    background-color: white;
 
   }
-  header >h3{
+  .title >h3{
     font-family:georgia;
     color:white;
-    padding-top: 10px;
-  }
-  .form-search{
-    position: absolute;
-    right: 0;
-    padding-right: 10px;
   }
   #Tiemkiem{
     width: 400px;
   }
-  .btn{
+  /* .btn{
     width: 50px;
     height: auto;
-  }
+  } */
 /* footer */
-  footer{
+  .footer{
     background-color: #1D5B8F;
     font-family:arial;
     padding-left: 50px;
