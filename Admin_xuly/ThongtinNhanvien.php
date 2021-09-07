@@ -25,7 +25,7 @@
         <div class="col-md-4">
           <div class="row">
             <div class="avatar" id="avatar">
-            <img src="<?php echo $row['Hinhanh']  ?> " class="text-muted" alt="Hình ảnh chưa được cập nhật" width="250px" height="300 px" >
+            <img src="<?php echo $row['Hinhanh']  ?> " class="text-muted"  width="250px" height="300 px" >
             </div>
           </div>
           <!-- Cap nhat hinh anh -->
@@ -69,7 +69,7 @@
                 <p>Giới tính</p>
                 <p>CMND</p>
                 <p>Số điện thoại</p>
-                <p>Chức vụ</p>
+                <p>Công việc</p>
                 <p>Địa chỉ</p>
                 <p>Tài khoản</p>
                 <p>Thời gian vào làm việc</p>
@@ -83,7 +83,7 @@
               <p><?php echo $row['Gt']; ?> </p>
               <p><?php echo $row['CMND_NV']; ?> </p>
               <p><?php echo $row['SDT_NV']; ?> </p>
-              <p><?php echo $row['Chucvu']; ?> </p>
+              <p><?php echo $row['Congviec']; ?> </p>
               <p><?php echo $row['DiaChi_NV']; ?> </p>
               <p><?php echo $row['usr']; ?> </p>
               <p><?php echo $row['Ngayvaolam']; ?> </p>
