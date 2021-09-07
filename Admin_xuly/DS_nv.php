@@ -1,4 +1,4 @@
- 
+
 <?php
 require("../connect.php");
 ?>
@@ -37,7 +37,7 @@ require("../connect.php");
         <th scope="col">CMND</th>
         <th scope="col">SDT</th>
         <th scope="col">Địa chỉ</th>
-        <th scope="col">Chức vụ</th>
+        <th scope="col">Công việc</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
@@ -61,7 +61,7 @@ require("../connect.php");
             <td id="cmnd"> <?php echo $row['CMND_NV']; ?> </td>
             <td id="sdt"> <?php echo $row['SDT_NV']; ?></td>
             <td id="diachi"> <?php echo $row['DiaChi_NV']; ?></td>
-            <td id="chucvu "> <?php echo $row['Chucvu']; ?></td>
+            <td id="congviec "> <?php echo $row['Congviec']; ?></td>
             <th scope="row"> <a style="color:black;" href="ThongtinNhanvien.php?id= <?php echo $row['MSNV']; ?>"> <i class="fas fa-edit"></i> </a> </th>
             <th scope="row" id="dete"> <a style="color:black;" href="Xoanv.php?id= <?php echo $row['MSNV']; ?>"> <i class="fas fa-trash-alt"></i> </a> </th>
       </tr>
