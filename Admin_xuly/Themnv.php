@@ -38,8 +38,8 @@
                   <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" required>
                   <label for="sdt">Số điện thoại</label>
                   <input type="text" name="sdt" class="form-control" placeholder="Sđt có 10 chữ số" id="sdt" required length='10' pattern="[0]?[0-9]{10,11}">
-                  <label for="sdt">Chức vụ</label>
-                  <input type="text" name="chucvu" class="form-control" placeholder="" id="cv" required>
+                  <label for="sdt">Công việc</label>
+                  <input type="text" name="congviec" class="form-control" placeholder="" id="cv" required>
                 <!-- </div> -->
 
               </div>
@@ -119,8 +119,7 @@
           $.post("Test_ThemNV.php",{cmnd:cmnd,sdt:sdt},function(data){
               if(data=="2"){
 
-                $('form').unbind('submit');
-                $('#submit').click();
+                $('form').unbind('submit').submit();
               }else
                   alert(data);
           })
