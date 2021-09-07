@@ -15,40 +15,62 @@
    <title>Moon's Homestay Welcome!</title>
 
   </head>
-  <body style="background-color:#fafafa;">
-    <div class="fluid-container">
+  <body style="background-color:#fafafa;" data-spy="scroll" data-target="#nav-header">
       <!-- header -->
-      <header>
+
         <!-- Tieu de -->
-        <h3 class="text-left text-justify font-weight-bold">
-          <span class=" align-top"><i class="fas fa-moon " style="color: yellow; font-size: 40px;"></i></span>
-          <span class=" align-bottom">MOON's</span>
-          <span class=" align-bottom">HOMETA<i class="fas fa-seedling"></i></span>
-        </h3>
+        <header>
+          <nav class="navbar navbar-expand-md fixed-top" id="nav-header">
+            <ul class="navbar-nav mr-auto">
+              <div class="title" id="title">
+              <h3 class="text-left text-justify font-weight-bold">
+                <span class=" align-top"><i class="fas fa-moon " style="color: yellow; font-size: 40px;"></i></span>
+                <span class=" align-bottom">MOON's</span>
+                <span class=" align-bottom">HOMETA<i class="fas fa-seedling"></i></span>
+              </h3>
+              <marquee style="width:300px; color:yellow;"> Moon's Homestay Welcome! -- 24/24</marquee>
+              </div>
+            </ul>
 
-            <marquee style="width:300px; color:yellow;"> Moon's Homestay Welcome! </marquee>
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"><a href="Trangchu.php?d=Trangchu" class="nav-link">TRANG CHỦ</a></li>
+                  <li class="nav-item"><a href="Trangchu.php?d=xemphong" class="nav-link">XEM PHÒNG</a></li>
+                    <li class="nav-item "><a href="Trangchu.php?d=Dulich" class="nav-link">DU LỊCH</a></li>
+                    <li class="nav-item "><a href="Trangchu.php?d=datphong" class="nav-link ">ĐẶT PHÒNG</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link" data-toggle="modal" data-target="#hotro">HỖ TRỢ</a></li>
+
+              </ul>
+            </nav>
+          </header>
+            <!-- modal hotro -->
+            <div class="modal fade" id="hotro">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="model-title">Hỗ trợ</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="model-body">
+                    <a href="https://www.google.com/maps" class="nav-link"><span class="text-info"> Bản đồ</span></a>
+                    <a href="Trangchu.php?d=cocphong" class="nav-link"><span class="text-warning"> Cọc phòng</span></a>
+                    <a href="mailto:moonhome@gmail.com?subject=Hotro" class="nav-link"><span class="text-warning"> Email</span></a>
+                    <a href="#footer" class="nav-link"><span class="text-warning"> Thông tin</span></a>
 
 
-        <!-- Thanh tiem kiem -->
-        <div class="form-search">
-            <form class="form-inline" action="#" method="post">
-              <div class="input-group mb-3">
-                <input type="search" name="Tiemkiem" id="Tiemkiem" class="form-control"  placeholder="..." value="">
-                <div class="input-group-append">
-                  <button type="button" class="btn btn-outline-light" name="button"><i class="fas fa-search" style="color:white; font-size:20px;"></i></button>
+                  </div>
+
                 </div>
               </div>
-          </form>
-        </div>
-      </header>
-      <!-- noi dung chinh -->
-      <div class="body">
+            </div>
+  <!-- noi dung chinh -->
+    <div class=" ">
+
+      <br>
+
         <div class="row">
           <!-- hien thi noi dung -->
-          <div class="col-lg-10">
+          <div class="col-lg-10 offset-1">
             <div class="noidunght">
-
-
             <?php
                 if(isset($_GET['d'])){
                   $Noidung = $_GET['d'];
@@ -65,6 +87,21 @@
                     case 'datphong':
                       require("Datphong.php");
                       break;
+                    case 'xacnhan':
+                      require("Xacnhan.php");
+                      break;
+                    case 'xemphong':
+                      require("Xemphong.php");
+                    case 'Datphongs':
+                      require("Datphongs.php");
+                      break;
+                      break;
+                    case 'Trangchu':
+                      require("Trangchu1.php");
+                      break;
+                    case 'cocphong':
+                      require ("Cocphong.php");
+                      break;
                     default:
                       require("Trangchu1.php");
                       break;
@@ -72,44 +109,19 @@
              ?>
              </div>
           </div>
-          <!-- Hien thi navbar -->
-          <!-- <div class="col-lg-1"></div> -->
-          <div class="col-lg-2">
-              <nav class="navbar ">
-                <ul class="navbar-nav">
-                  <div class="dropleft">
-                    <a href="#" class="nav-link" data-toggle="dropdown">
-                        <i class="fas fa-bars" style="font-size:50px;"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                      <li class="dropdown-item"><a href="Trangchu.php?d=Trangchu" class="nav-link ">Trang chủ</a></li>
-                      <div class="dropdown-divider"></div>
-                      <li class="dropdown-item"><a href="Trangchu.php?d=Dulich" class="nav-link">Du lịch</a></li>
-                      <div class="dropdown-divider"></div>
-                      <li class="dropdown-item"><a href="Trangchu.php?d=datphong" class="nav-link">Đặt phòng</a></li>
-                      <div class="dropdown-divider"></div>
-                      <li class="dropdown-item"><a href="https://www.google.com/" class="nav-link">Chỉ đường</a> </li>
-                    </div>
-                  </div>
-                </ul>
-              </nav>
 
-          </div>
+
         </div>
-      </div>
-      <!-- footer -->
-      <footer>
-
-        <p>Mọi thông tin chi tiết xin vui lòng liên hệ: </p>
-        <p><i class="fas fa-home"></i> Moon's Homestay Khu II, đường 3/2, P.Xuân Khánh, Q.Ninh Kiều, TP.Cần Thơ</p>
-        <p><i class="fas fa-mobile-alt"></i> 0949760662</p>
-        <p><i class="fas fa-envelope"></i> Moonhomestay@gmail.com</p>
-        <p><i class="fab fa-facebook-square"></i> Moon's Homestay</p>
-
-        <p id="loiket">Moon's Homestay rất vui được phục vụ quý khách!</p>
+</div>
+  <div id="footer">
+    <?php
+        include("Footer.php");
 
 
-      </footer>
-    </div>
-  </body>
+     ?>
+  </div>
+
+
+</body>
+
 </html>
