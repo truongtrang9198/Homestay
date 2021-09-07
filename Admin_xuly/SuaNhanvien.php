@@ -53,8 +53,8 @@
                    <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" value="<?php echo $row['NgaysinhNV']; ?> " required>
                    <label for="sdt">Số điện thoại</label>
                    <input type="text" name="sdt" class="form-control" placeholder="Sđt có 10 chữ số" id="sdt" required length='10' pattern="[0]?[0-9]{10,11}" value="<?php echo $row['SDT_NV']; ?>">
-                   <label for="sdt">Chức vụ</label>
-                   <input type="text" name="chucvu" class="form-control" placeholder="" id="cv" value="<?php echo $row['Chucvu']; ?>" required>
+                   <label for="sdt">Công việc</label>
+                   <input type="text" name="congviec" class="form-control" placeholder="" id="cv" value="<?php echo $row['Chucvu']; ?>" required>
                  <!-- </div> -->
 
                </div>
@@ -120,13 +120,13 @@
          var hoten = $.trim($('#hoten').val());
          var ngaysinh = $('#ngaysinh').val();
          var diachi = $.trim($('#diachi').val());
-         var chucvu =$.trim($('#chucvu').val());
+         var congviec =$.trim($('#congviec').val());
          var gioitinh = $('input[name="gioitinh"]:checked').val();
          var sdt = $.trim($("#sdt").val());
          var cmnd =  $.trim($("#cmnd").val());
 
            $.post("Xl_SuaNV.php",{manv:manv,hoten:hoten,ngaysinh:ngaysinh,diachi:diachi,
-                    chucvu:chucvu,gioitinh:gioitinh,sdt:sdt,cmnd:cmnd},function(data){
+                    congviec:congviec,gioitinh:gioitinh,sdt:sdt,cmnd:cmnd},function(data){
                    alert(data);
            })
 
