@@ -18,7 +18,7 @@ $user =addslashes( $_POST['usr']);
 $pw  = addslashes($_POST['pwd']);
 $pw = md5($pw);
 
-$sql = "select Ma_admin, Pwd from _admin where Ma_admin = '$user'";
+$sql = "select usr, Pwd from _admin where usr = '$user'";
  $query = mysqli_query($conn, $sql);
 if(mysqli_num_rows($query) != 0){
     $row = mysqli_fetch_array($query);
