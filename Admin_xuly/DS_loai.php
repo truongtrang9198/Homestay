@@ -18,9 +18,10 @@ include("../connect.php");
       <tr>
         <th scope="col">STT</th>
         <th scope="col">Mã loại</th>
-        <th scope="col">Tên loại phòng</th>
+        <th scope="col">Tên loại</th>
         <th scope="col"></th>
         <th scope="col"></th>
+
       </tr>
     </thead>
     <tbody>
@@ -37,8 +38,9 @@ include("../connect.php");
             <th scope="row"> <?php echo $n ?> </th>
             <td id="ma"> <?php echo $row['Maloai']; ?> </th>
             <td id="ten"> <?php echo $row['Tenloai'] ?> </th>
-            <th scope="row"> <a style="color:black;" href="Sualoai.php?id= <?php echo $row['Maloai']; ?>"> <i class="fas fa-edit"></i> </a> </th>
-            <th scope="row" id="dete"> <a style="color:black;" href="Xoaloai.php?id= <?php echo $row['Maloai']; ?>"> <i class="fas fa-trash-alt"></i> </a> </th>
+            <td scope="row"> <a style="color:black;" href="Sualoai.php?id= <?php echo $row['Maloai']; ?>"> <i class="fas fa-edit"></i> </a> </td>
+            <td scope="row"> <a style="color:black;" href="Xoaloai.php?id= <?php echo $row['Maloai']; ?>"> <i class="far fa-trash-alt"></i> </a> </td>
+
       </tr>
   <?php
             $n = $n + 1;
