@@ -12,10 +12,19 @@
     <meta charset="utf-8">
 
     <title></title>
+    <style media="screen">
+      .title{
+        background-color: #1D5B8F;
+      }
+      .btn1{
+        background-color: #1D5B8F !important;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div class="p-2 mb-2 bg-primary text-white text-center">
+      <div class="title p-2 mb-2 text-white text-center">
         <h3 class=" ">Sửa phòng </h3>
       </div>
        <form class="" action="xuly_themphong.php" method="post">
@@ -60,8 +69,8 @@
               </div>
             </div>
               <div class="row">
-                <button type="button" class="btn btn-danger" name="" value="Hủy" id="reset">Hủy bỏ</button>&ensp;
-                <button type="button" class="btn btn-primary" name="themphong" id="themphong" value="">Lưu thay đổi</button>
+                <button type="button" class="btn btn1" name="" value="Hủy" id="reset">Hủy bỏ</button>&ensp;
+                <button type="button" class="btn btn1" name="themphong" id="themphong" value="">Lưu thay đổi</button>
 
               </div>
           </div>
