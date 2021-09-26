@@ -5,13 +5,13 @@
     <title></title>
     <style media="screen">
 
-    body{
-      background-image: url(anh.jpg);
-      
-      background-size:cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+    body {
+background: url('anh.jpg') no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
 
     </style>
   </head>
