@@ -30,7 +30,7 @@ require("../connect.php");
     <thead>
       <tr>
         <th scope="col">STT</th>
-        <th scope="col">Mã nhân viên</th>
+        <th scope="col">MSNV</th>
         <th scope="col">Họ tên</th>
         <th scope="col">Năm sinh</th>
         <th scope="col">Giới tính</th>
@@ -38,12 +38,13 @@ require("../connect.php");
         <th scope="col">SDT</th>
         <th scope="col">Địa chỉ</th>
         <th scope="col">Công việc</th>
+        <th scope="col">Trạng thái</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr id="Sua">
+      <tr>
         <?php
         $n = 0;
         $sql = "select * from Nhanvien";
@@ -61,9 +62,14 @@ require("../connect.php");
             <td id="cmnd"> <?php echo $row['CMND_NV']; ?> </td>
             <td id="sdt"> <?php echo $row['SDT_NV']; ?></td>
             <td id="diachi"> <?php echo $row['DiaChi_NV']; ?></td>
-            <td id="congviec "> <?php echo $row['Congviec']; ?></td>
-            <th scope="row"> <a style="color:black;" href="ThongtinNhanvien.php?id= <?php echo $row['MSNV']; ?>"> <i class="fas fa-edit"></i> </a> </th>
-            <th scope="row" id="dete"> <a style="color:black;" href="Xoanv.php?id= <?php echo $row['MSNV']; ?>"> <i class="fas fa-trash-alt"></i> </a> </th>
+            <td id="congviec "> <?php echo $row['Chucvu']; ?></td>
+            <td id="trangthai "> <?php echo $row['Trangthaicv']; ?></td>
+
+            <td> <a style="color:black;" href="ThongtinNhanvien.php?id= <?php echo $row['MSNV']; ?>">
+               <i class="fas fa-edit"></i> </a> </td>
+            <td> <a style="color:black;" href="XoaNV.php?id= <?php echo $row['MSNV']; ?>" >
+                  <i class="far fa-trash-alt"></i>
+               </a> </td>
       </tr>
   <?php
             $n = $n + 1;
@@ -78,6 +84,7 @@ require("../connect.php");
 </html>
 <script type="text/javascript">
   $(document).ready(function() {
+    //  tìm kiếm nv
     $('#Timkiem').on('keyup', function(event) {
       event.preventDefault();
       var key = $('#Timkiem').val().toLowerCase();
@@ -85,5 +92,6 @@ require("../connect.php");
         $(this).toggle($(this).text().toLowerCase().indexOf(key) > -1);
       });
     });
+
   })
 </script>
