@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+require("../connect.php");
 $hoten = trim($_POST['hoten']);
 $CMND =$_POST['cmnd'];
 $diachi =trim($_POST['diachi']);
@@ -10,14 +10,14 @@ $gioitinh =$_POST['gioitinh'];
 $hinhanh = $_FILES['anh']['name'];
 $usr = trim($_POST['usr']);
 $pwd = md5($_POST['pwd']);
-$path="HinhanhNV/";
+$path="../HinhanhNV/";
 $tmp_name = $_FILES['anh']['tmp_name'];
 move_uploaded_file($tmp_name,$path.$hinhanh);
 $img_url = $path.$hinhanh;
 // them tai khoan
 
 
- $sql = "insert into Nhanvien(Hoten_NV,NgaysinhNV,Gt,CMND_NV,DiaChi_NV,SDT_NV,Congviec,Hinhanh) values('$hoten','$ngaysinh','$gioitinh','$CMND','$diachi',
+ $sql = "insert into Nhanvien(Hoten_NV,NgaysinhNV,Gt,CMND_NV,DiaChi_NV,SDT_NV,Chucvu,Hinhanh) values('$hoten','$ngaysinh','$gioitinh','$CMND','$diachi',
                   '$sdt','$congviec','$img_url')";
 if(mysqli_query($conn,$sql)){
   if($usr !='' && $pwd!=''){
@@ -25,7 +25,7 @@ if(mysqli_query($conn,$sql)){
     mysqli_query($conn,$sql);
   }
 
-    header("Location:Admin.php?d=themnv");
+    header("Location:../Admin.php?d=dsnv");
 
 }else
     echo("Lỗi hệ thống!");
