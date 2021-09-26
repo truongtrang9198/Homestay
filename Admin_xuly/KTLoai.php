@@ -26,10 +26,9 @@ include ("../connect.php");
               echo("2");
           else
               echo("Lỗi hệ thống");
+            }
 
-        }
 
 
-    
 
 ?>
