@@ -1,33 +1,29 @@
 <?php
-include ("nav.php");
-include ("../connect.php");
-      if(isset($_GET['id'])) {
-            $ma = $_GET['id'];
 
+  if(isset($_GET['id'])){
+    $maloai = $_GET['id'];
 
+  }else{
+    $maloai='';
+  }
  ?>
- <script type="text/javascript">
-      <?php
-      $sql = "select Tenloai from Loaiphong where Maloai = '$ma'";
-      $query = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($query) != 0){
-          while ($row = mysqli_fetch_array($query)) {
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-       ?>
-      var result = window.confirm("Bạn muốn xóa '<?php echo $row['Tenloai']; ?>' ra khỏi hệ thống? ");
-    <?php
-          }
-      }
-     ?>
-      if(result){
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
 
-              $.get("XL_Xoaloai.php",{ma:<?php echo $ma; ?>},function(data){
-                alert(data);
+// xóa nhân viên
+window.onload = function(){
+  var maloai = <?php echo $maloai ?>;
+  var xacnhan = confirm('Xóa loại phòng ra khỏi hệ thống?');
+  if(xacnhan){
+    $.get("Xulyxoaloai.php",{maloai:maloai},function(thongbao){
+      alert(thongbao);
 
-              });
-}
-        $(location).attr('href', 'Admin.php?d=dsloai');
- </script>
- <?php
-    }
-  ?>
+    })
+  }
+  $(location).attr('href', 'Admin.php?d=dsloai');
+};
+
+</script>
