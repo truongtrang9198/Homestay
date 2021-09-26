@@ -2,12 +2,7 @@
   include("../connect.php");
 
   $n = 0;
-  $sql = "call DanhsachTaikhoan()";
-  $query = mysqli_query($conn,$sql);
-  if(mysqli_num_rows($query)!=0){
-      while($row = mysqli_fetch_array($query))  {
-
-      ?>
+  ?>
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
@@ -26,18 +21,24 @@
            </tr>
          </thead>
          <tbody>
+           <?php
+           $sql = "call DanhsachTaikhoan()";
+           $query = mysqli_query($conn,$sql);
+           if(mysqli_num_rows($query)!=0){
+               while($row = mysqli_fetch_array($query))  {
+               ?>
            <tr>
              <td><?php echo $n ?> </td>
              <td><?php echo $row['username']; ?> </td>
              <td><?php echo $row['Hoten_NV']; ?></td>
            </tr>
+           <?php
+                $n = $n +1;
+                }
+              }
+            ?>
          </tbody>
        </table>
      </div>
    </body>
  </html>
- <?php
-      $n = $n +1;
-      }
-    }
-  ?>
