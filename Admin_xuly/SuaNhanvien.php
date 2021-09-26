@@ -7,8 +7,6 @@
     //  echo $ma;
 
  ?>
-
-
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
@@ -50,7 +48,7 @@
                    <label for="hoten">Họ và tên</label>
                    <input type="text" class="form-control" name="hoten" value="<?php echo $row['Hoten_NV']; ?> " id="hoten" required>
                    <label for="ngaysinh">Ngày sinh</label>
-                   <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" value="<?php echo $row['NgaysinhNV']; ?> " required>
+                   <input type="text" class="form-control" name="ngaysinh" id="ngaysinh" value="<?php echo $row['NgaysinhNV']; ?> " required>
                    <label for="sdt">Số điện thoại</label>
                    <input type="text" name="sdt" class="form-control" placeholder="Sđt có 10 chữ số" id="sdt" required length='10' pattern="[0]?[0-9]{10,11}" value="<?php echo $row['SDT_NV']; ?>">
                    <label for="sdt">Công việc</label>
@@ -61,7 +59,7 @@
 
                <br>
                <div class="row">
-                 <button type="submit" id="submit" class="btn " name="button">Lưu thay đổi</button>&ensp;
+                 <button type="button" id="submit" class="btn " name="button">Lưu thay đổi</button>&ensp;
                  <button type="button" id="reset" class="btn  " name="button">Hủy</button>
                </div>
 
@@ -74,24 +72,13 @@
 
                    <label for="cmnd">CMND/CCCD</label>
                    <input type="text" class="form-control" name="cmnd"  placeholder="Nhập vào CMND/CCCD ..." id="cmnd" required pattern="[0-9]{9}" value="<?php echo $row['CMND_NV']; ?>">
-
-               </div>
-               <div class="row" >
-                 <div class="form-check form-check-inline">
-                   <label for="gioitinh" class="form-check-label" >Giới tính:  </label>
-                 </div>
-
-                 <div class="form-check form-check-inline">
-                   <label class="form-check-label"> <input class="form-check-input" type="radio" name="gioitinh" id="nu" value="nữ">Nữ</label>
-                 </div>
-                 <div class="form-check form-check-inline">
-                     <label class="form-check-label"><input  class="form-check-input" type="radio" name="gioitinh" id="nam" value="nam">Nam</label>
-                 </div>
-               </div>
-               <div class="row">
+                   <label for="gioitinh">Giới tính</label>
+                   <input type="text" class="form-control" name="gioitinh"   id="gioitinh"  required value="<?php echo $row['Gt']; ?>">
                  <!-- <div class="form-group"> -->
                    <label for="diachi">Địa chỉ</label>
                    <input type="text" class="form-control" name="diachi"   id="diachi"  required value="<?php echo $row['DiaChi_NV']; ?>">
+                   <label for="trangthai">Trạng thái</label>
+                   <input type="text" class="form-control" name="trangthai"   id="trangthai"  required value="<?php echo $row['Trangthaicv']; ?>">
 
                  <!-- </div> -->
                </div>
@@ -114,27 +101,24 @@
 
  <script type="text/javascript">
       $(document).ready(function(){
-        $('form').submit(function(e){
-         e.preventDefault();
+        $('#submit').click(function(){
+
          var manv = <?php echo $ma; ?>;
          var hoten = $.trim($('#hoten').val());
          var ngaysinh = $('#ngaysinh').val();
          var diachi = $.trim($('#diachi').val());
          var congviec =$.trim($('#congviec').val());
-         var gioitinh = $('input[name="gioitinh"]:checked').val();
+         var gioitinh = $('#gioitinh').val();
          var sdt = $.trim($("#sdt").val());
          var cmnd =  $.trim($("#cmnd").val());
-
+         var trangthai = $('#trangthai').val();
            $.post("Xl_SuaNV.php",{manv:manv,hoten:hoten,ngaysinh:ngaysinh,diachi:diachi,
-                    congviec:congviec,gioitinh:gioitinh,sdt:sdt,cmnd:cmnd},function(data){
+                    congviec:congviec,gioitinh:gioitinh,sdt:sdt,cmnd:cmnd,trangthai:trangthai},function(data){
                    alert(data);
            })
-
        });
       $('#reset').click(function(){
         $(location).attr('href','ThongtinNhanvien.php?id=<?php echo $ma;?>');
       })
       })
-
-
  </script>
