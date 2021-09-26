@@ -8,6 +8,7 @@
   $cmnd  = $_POST['cmnd'];
   $diachi  = $_POST['diachi'];
   $congviec  = $_POST['congviec'];
+  $trangthai =$_POST['trangthai'];
   $n = "0";
   $sql = "select SDT_NV,CMND_NV from Nhanvien where not MSNV = $manv";
   $query = mysqli_query($conn,$sql);
@@ -26,7 +27,7 @@
   //  update thong tin
   if($n!="1"){
     $sql = "update Nhanvien set Hoten_NV = '$hoten',NgaysinhNV = '$ngaysinh', Gt='$gioitinh',CMND_NV='$cmnd',SDT_NV='$sdt',
-    DiaChi_NV ='$diachi',Congviec='$congviec' where MSNV = '$manv'";
+    DiaChi_NV ='$diachi',Chucvu='$congviec',Trangthaicv='$trangthai' where MSNV = '$manv'";
     if(mysqli_query($conn,$sql)){
     echo("Thành công!");
 
