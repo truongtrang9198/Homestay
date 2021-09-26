@@ -5,10 +5,18 @@ include ("../connect.php");
             $ma = $_GET['id'];
 
  ?>
-
+<style media="screen">
+     .title{
+       background-color: #1D5B8F;
+     }
+     .btn{
+       background-color: #1D5B8F !important;
+       color: white;
+     }
+ </style>
   <body>
     <div class="container">
-      <div class="p-2 mb-2 bg-primary text-white text-center">
+      <div class="title p-2 mb-2  text-white text-center">
         <h3 class=" ">Sửa loại phòng </h3>
       </div>
       <form class="" action="#" method="post">
