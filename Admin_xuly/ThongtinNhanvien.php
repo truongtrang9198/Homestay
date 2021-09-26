@@ -1,5 +1,5 @@
 <?php
-    include("../connect.php");
+    include(".../connect.php");
     include("nav.php");
     if(isset($_GET['id'])){
         $ma =  $_GET['id'];
@@ -73,8 +73,9 @@
                 <p>Địa chỉ</p>
                 <p>Tài khoản</p>
                 <p>Thời gian vào làm việc</p>
+                <p>Trạng thái</p>
                 <a   class="btn btn-outline-primary" href="SuaNhanvien.php?id= <?php echo $row['MSNV']; ?>" >Sửa</a>
-                <a class="btn btn-outline-primary" href="Xoanv.php?id= <?php echo $row['MSNV']; ?>">Xóa</a>
+                <button class="btn btn-outline-primary" id="btn-xoaNV" value=" <?php echo $row['MSNV']; ?>">Xóa</button>
               </div>
             </div>
             <div class="col-md-4">
@@ -83,10 +84,12 @@
               <p><?php echo $row['Gt']; ?> </p>
               <p><?php echo $row['CMND_NV']; ?> </p>
               <p><?php echo $row['SDT_NV']; ?> </p>
-              <p><?php echo $row['Congviec']; ?> </p>
+              <p><?php echo $row['Chucvu']; ?> </p>
               <p><?php echo $row['DiaChi_NV']; ?> </p>
               <p><?php echo $row['usr']; ?> </p>
               <p><?php echo $row['Ngayvaolam']; ?> </p>
+              <p><?php echo $row['Trangthaicv']; ?> </p>
+
             </div>
           </div>
         </div>
@@ -107,7 +110,7 @@
  ?>
  <script type="text/javascript">
       $(document).ready(function(){
-
+    // Xử lý thêm ảnh
         $('input').change(function(){
           var img = $('#img').val();
           var dd_img= img.slice(img.indexOf('.')+1,img.length);
@@ -141,7 +144,18 @@
           }else {
             $('p').html("Ảnh không đúng định dạng!");
           }
-        })
+        });
+    // Hàm xoas nhan vien
+      $('#btn-xoaNV').click(function(){
+        var manv = $('#btn-xoaNV').val();
+        var xacnhan = confirm('Xóa nhân viên ra khỏi hệ thống?');
+        if(xacnhan){
+          $.get("XL_Xoanv.php",{manv:manv},function(thongbao){
+            alert(thongbao);
+            $(location).attr('href', 'Admin.php?d=dsnv');
+          })
+        }
+      });
 
 });
  </script>
