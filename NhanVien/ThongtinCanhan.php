@@ -64,7 +64,7 @@
                 <p><?php echo $row['Gt']; ?> </p>
                 <p><?php echo $row['CMND_NV']; ?> </p>
                 <p><?php echo $row['SDT_NV']; ?> </p>
-                <p><?php echo $row['Congviec']; ?> </p>
+                <p><?php echo $row['Chucvu']; ?> </p>
                 <p><?php echo $row['DiaChi_NV']; ?> </p>
                 <p><?php echo $row['username']; ?> </p>
                 <p><?php echo $row['Ngayvaolam']; ?> </p>
