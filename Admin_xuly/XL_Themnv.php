@@ -1,5 +1,5 @@
 <?php
-require("../connect.php");
+include("../connect.php");
 $hoten = trim($_POST['hoten']);
 $CMND =$_POST['cmnd'];
 $diachi =trim($_POST['diachi']);
@@ -10,7 +10,7 @@ $gioitinh =$_POST['gioitinh'];
 $hinhanh = $_FILES['anh']['name'];
 $usr = trim($_POST['usr']);
 $pwd = md5($_POST['pwd']);
-$path="../HinhanhNV/";
+$path="HinhanhNV/";
 $tmp_name = $_FILES['anh']['tmp_name'];
 move_uploaded_file($tmp_name,$path.$hinhanh);
 $img_url = $path.$hinhanh;
@@ -25,8 +25,8 @@ if(mysqli_query($conn,$sql)){
     mysqli_query($conn,$sql);
   }
 
-    header("Location:../Admin.php?d=dsnv");
-
+    header("Location:Admin.php?d=dsnv");
+    
 }else
     echo("Lỗi hệ thống!");
 
