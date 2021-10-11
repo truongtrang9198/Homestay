@@ -3,45 +3,8 @@ img{
   max-width: 100%;
 }
 body {
-
-  background: url(\sky.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+background-color: lightblue;
 }
-/*
-.form_login{
-  width: 500px;
-  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
-  border: 1px;
-  border-style: groove;
-  color: white;
-  margin:0 auto;
-  position: absolute;
-  left: 500px;
-  top: 250px;
-  line-height: 50px;
-
-}
-h3 {
-  color: white;
-  margin-top: 200px;
-  font-size: 50px;
-}
-
-.usr {
-  margin: auto;
-  padding: 0 100px;
-}
-.pwd {
-  padding: 0 100px;
-}
-
-  button {
-  margin-left:165px;
-  width: 150px;
-} */
 input[type=text], input[type=password] {
   width: 30%;
   padding: 12px 20px;
