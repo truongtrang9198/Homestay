@@ -7,9 +7,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-  
-    <script type="text/javascript" src="Datphong.js"></script>
 
+    <script type="text/javascript" src="Datphong.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="Thoigian.js" charset="utf-8"></script>
   </head>
 
 
@@ -45,9 +49,12 @@
         <label for="email">Email</label>
         <input type="mail" name="email" id="email" class="form-control" value="">
         <label for="ngayden">Ngày check in</label>
-        <input type="date" name="ngayden" id="ngayden" class="form-control" value="" required>
+        <!-- <input type="date" name="ngayden" id="ngayden" class="form-control" value="" required> -->
+        <input type="text" name="ngayden" id="ngayden" value="" class="form-control">
         <label for="ngaydi">Ngay check out</label>
-        <input type="date" name="ngaydi" id="ngaydi" class="form-control" value="" required> <br>
+        <!-- <input type="date" name="ngaydi" id="ngaydi" class="form-control" value="" required> <br> -->
+        <input type="text" name="ngaydi" id="ngaydi" value="" class="form-control">
+
         <input type="number" name="songay" value="" class="form-control" id="songay" hidden>
         <!-- Thong bao doc noi quy homestay -->
         <p  style="font-size:10px;"><span class="text-muted">\*Vui lòng đọc 'Nội quy homestay' trước khi đặt phòng</span>
