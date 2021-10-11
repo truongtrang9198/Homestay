@@ -4,9 +4,6 @@ include("../connect.php");
 $CMND =$_POST['cmnd'];
 $sdt = $_POST['sdt'];
 
-
-
-
 $sql = "select * from NhanVien";
 $query = mysqli_query($conn,$sql);
 if(mysqli_num_rows($query) != 0){
