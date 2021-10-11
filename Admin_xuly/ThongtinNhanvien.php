@@ -1,5 +1,5 @@
 <?php
-    include(".../connect.php");
+    include("../connect.php");
     include("nav.php");
     if(isset($_GET['id'])){
         $ma =  $_GET['id'];
