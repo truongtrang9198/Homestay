@@ -39,7 +39,7 @@
         if(mysqli_num_rows($query)>0){
           while ($row=mysqli_fetch_array($query)) {
               $msp =  $row['MSP'];
-              $sql = "select * from Anhphong where MSP = '$msp' LIMIT 0,1";
+              $sql = "select * from Anhphong where MSP = '$msp' LIMIT 1";
               if(mysqli_query($conn,$sql)){
                 $url=mysqli_fetch_array(mysqli_query($conn,$sql));
  ?>
