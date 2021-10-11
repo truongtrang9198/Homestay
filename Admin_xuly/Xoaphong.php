@@ -24,7 +24,7 @@ include ("../connect.php");
           $.get("XL_Xoaphong.php",{ma:<?php echo $ma; ?>},function(data){
             alert(data);
           })
-}      header("Refresh:0; url=Admin.php?d=dsphong");
+}    
       $(location).attr('href', 'Admin.php?d=dsphong');
 
  </script>
