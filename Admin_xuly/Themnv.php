@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,6 +11,7 @@
        color: white !important;
      }
    </style>
+   <script src="Quanlynv.js"></script>
   </head>
   <body>
 
@@ -28,8 +28,6 @@
         <form class="form-group" enctype="multipart/form-data" action="XL_Themnv.php" method="post" id="form_nv" >
           <div class="form-row">
             <div class="col-md-4">
-
-
               <div class="row">
                 <!-- <div class="form-group"> -->
                   <label for="hoten">Họ và tên</label>
@@ -55,7 +53,7 @@
               </div>
               <br>
               <div class="row">
-                <button type="submit" id="submit" class="btn " name="button">Thêm Nhân Viên</button>&ensp;
+                <button type="submit" id="submit" class="btn " name="button" id="btn-themnv">Thêm Nhân Viên</button>&ensp;
                 <button type="reset" id="reset" class="btn  " name="button">Tải lại</button>
               </div>
 
@@ -106,26 +104,3 @@
 
   </body>
 </html>
-
-<script type="text/javascript">
-      $('form').submit(function(e){
-        e.preventDefault();
-        var sdt = $.trim($("#sdt").val());
-        var img = $("#anh").val();
-        var dd_img= img.slice(img.indexOf('.')+1,img.length);
-        var d_img = dd_img.toUpperCase();
-        var cmnd =  $.trim($("#cmnd").val());
-        if(d_img == 'JPG' || d_img == 'GIF' || d_img == 'PNG'){
-          $.post("Test_ThemNV.php",{cmnd:cmnd,sdt:sdt},function(data){
-              if(data=="2"){
-
-                $('form').unbind('submit').submit();
-              }else
-                  alert(data);
-          })
-        }else{
-          alert("Định dạng ảnh không hợp lệ!");
-        }
-      })
-
-</script>
