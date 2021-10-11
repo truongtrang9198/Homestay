@@ -1,14 +1,18 @@
+create database Homestay;
 use Homestay;
+drop database homestay;
 create table KhachHang (
-	MSKH int not null primary key AUTO_INCREMENT,
+	MSKH int not null primary key,
     HoTenKhach varchar(30) ,
     NgaysinhKH Date,
     Gioitinh boolean,
     CMND char(9) not null,
     DiaChi varchar(100),
     SDT char(10) not null,
-    Email varchar(30) );
+    Email varchar(30),
+    pwd_KH varchar(32));
 
+drop table KhachHang;
 create table TaiKhoan (
 	username varchar(5),
     passwd   char(32),
@@ -24,7 +28,11 @@ create table NhanVien (
     CMND_NV char(9) not null,
     DiaChi_NV varchar(100),
     SDT_NV char(10) not null,
-    Chucvu varchar(50) );
+    Chucvu varchar(50),
+	Trangthaicv varchar(30),
+    Hinhanh varchar(100)
+    );
+
 create table Loaiphong(
 			Maloai int not null primary key AUTO_INCREMENT,
 		    Tenloai varchar(50) not null
@@ -38,34 +46,32 @@ create table Phong (
     );
 
 
-create table Chitiet(
+create table ChitietDP (
 
     MSP int,
-    MSKH int ,
-    MaHD int,
-    Check_in datetime,
-    Check_out datetime,
+    MaDP int ,
+    Check_in date,
+    Check_out date,
     Sodem int,
-    -- constraint Ma_phong primary key(MSP),
-    -- constraint MA_KHACH primary key(MSKH)
-    primary key(MSP,MSKH)
+    Tienphong decimal(10,2),
+	primary key(MSP,MaDP)
 
     );
-
-
-create table Hoadon(
-	Mahd int not null primary key AUTO_INCREMENT,
+    drop table Chitiet;
+create table Datphong (
+	MaDP int primary key auto_increment,
+    MSKH int,
     MSNV int,
-    Tongtien double not null, -- tongtien = tienphong*dem + phikhac
-    Phikhac double not null, -- bang tien dv
+	Phikhac decimal(10,2),
     Thanhtoan varchar(30),
-    foreign key(MSNV) references NhanVien(MSNV) on delete no action
-
+    Tongtien decimal(10,2),
+    Ghichu varchar(100),
+    Thoihian timestamp
 );
 
 create table _Admin(
-	Ma_admin char(5) default "Yuen",
-    Pwd char(6)
+	Ma_admin char(5) default "Admin",
+    Pwd varchar(32)
 );
 
 create table Anhphong (
@@ -73,3 +79,19 @@ create table Anhphong (
         Hinhphong varchar(100),
         foreign key(MSP) references Phong(MSP) on delete cascade
 	);
+    
+    create table Trangthai (
+		Trangthai int,
+        Tungay date,
+        Denngay date,
+        MSP int,
+        foreign key(MSP) references Phong(MSP)
+    
+    
+    );
+
+create table Khachhang_temp (
+		MaKH int not null primary key AUTO_INCREMENT,
+        TenKH varchar(50)
+
+);
