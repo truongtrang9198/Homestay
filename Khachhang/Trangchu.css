@@ -75,5 +75,17 @@ nav{
   /* Noi dung hthi */
   .noidunght{
     margin-left: 10px;
-
   }
+
+.btn{
+  background-color: #1D5B8F;
+  color: white;
+}
+/* style toast */
+.toast{
+    background-color: white;
+    position:absolute;
+    top: 150px;
+    right: 0;
+    /* z-index: 3; */
+}
