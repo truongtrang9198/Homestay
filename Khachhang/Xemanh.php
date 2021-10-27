@@ -14,8 +14,9 @@
 
      ?>
     <div class="d-flex p-2 m-2">
-      <img src="<?php echo "../Admin_xuly/".$row['Hinhphong'] ?>" alt="" width="800px" height="600px;"> <hr>
+      <img src="<?php echo "../Admin_xuly/".$row['Hinhphong'] ?>" alt="" width="600px" height="900px;">
     </div>
+    <hr>
 
 <?php
 }
