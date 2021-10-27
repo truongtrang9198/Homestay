@@ -41,17 +41,25 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
       .xacnhan{
         padding-top: 20px;
         padding-bottom: 20px;
+
+      }
+      .form{
+        padding-left: 5px;
       }
       #btn-xacnhan{
         margin-left: 600px;
         margin-bottom: 5px;
+        width: 200px !important;
       }
       #btn-huy{
         margin-left: 5px;
       }
       input{
         border: 1px;
-        border-
+
+      }
+      #title-xacnhan{
+        font-family: times;
       }
 
     </style>
@@ -68,7 +76,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
               <p class="name text-muted"> <span class=" align-top"><i class="fas fa-moon " style="color: yellow;"></i></span>
               <span class=" align-bottom">MOON's</span>
               <span class=" align-bottom">HOMETA<i class="fas fa-seedling"></i></span></p>
-              <h3 class="text-center font-weight-normal">&mdash;XÁC NHẬN ĐẶT PHÒNG	&mdash;</h3>
+              <h3 class="text-center font-weight-normal" id="title-xacnhan">&mdash;XÁC NHẬN ĐẶT PHÒNG	&mdash;</h3>
               <hr>
               <form class="form" action="index.html" method="post">
                 <label for="Hoten" class="text-muted">Khách hàng: </label>
@@ -111,10 +119,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                     <td><?php echo $ngayden1; ?></td>
                     <td><?php echo $ngaydi1; ?></td>
                     <td><?php echo $songay; ?></td>
-                    <td><?php echo $row['Gia']; ?></td>
-                    <td><?php echo $songay*$row['Gia'] ?> VND</td>
-                    <td><?php echo $songay*$row['Gia']*0.3 ?> VND</td>
-                    <td><?php echo $songay*$row['Gia'] - $songay*$row['Gia']*0.3 ?> VND</td>
+                    <td><?php echo number_format($row['Gia']); ?></td>
+                    <td><?php echo number_format($songay*$row['Gia']) ?> VND</td>
+                    <td><?php echo number_format($songay*$row['Gia']*0.3) ?> VND</td>
+                    <td><?php echo number_format($songay*$row['Gia'] - $songay*$row['Gia']*0.3) ?> VND</td>
                   </tr>
                 </tbody>
               </table>
@@ -125,7 +133,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
               </p>
                     <button type="button" name="button" class="btn btn-info" id="btn-huy" onclick="window.history.back();"><i class="far fa-caret-square-left"></i></button>
                     <button type="button" class="btn btn-info text-nowrap" id="btn-xacnhan" name="button" data-toggle="tooltip"
-                    title="Kiểm tra thông tin trước khi bấm xác nhận">Đặt phòng</button>
+                    title="Kiểm tra thông tin trước khi bấm xác nhận">Đặt Phòng</button>
             </div>
             </div>
           </div>
