@@ -1,8 +1,18 @@
 <?php
-
-    include("../connect.php");
-    if(isset($_POST['maphong'])){
-      $maphong = $_POST['maphong'];
+include("../connect.php");
+// lấy mã khách hàng
+  if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+  }
+  if(isset($_SESSION['MSKH'])){
+    $makhach = $_SESSION['MSKH'];
+  }else {
+    $makhach ='';
+  }
+    if(isset($_GET['maphong']) && isset($_GET['ngaydi']) && isset($_GET['ngayden'])){
+      $maphong = $_GET['maphong'];
+      $ngayden = $_GET['ngayden'];
+      $ngaydi = $_GET['ngaydi'];
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -49,10 +59,7 @@
         <!-- Thong bao doc noi quy homestay -->
         <p  style="font-size:10px;"><span class="text-muted">\*Vui lòng đọc 'Nội quy homestay' trước khi đặt phòng</span>
         <a href="Trangchu.php?d=Trangchu/#Xemnoiqui" class="text-info">Nội quy honestay</a> </p>
-        <div class="row" id="button">
-          &ensp;&ensp; <button type="button" name="huy" class="btn1 btn btn-primary" id="huy">Hủy</button> &ensp;
-          <button type="submit" name="tieptuc" class="btn1 btn btn-primary" id="tieptuc">Tiếp tục</button>
-        </div>
+
 
     </div>
     <div class="col-lg-6 md-6 offset-1">
