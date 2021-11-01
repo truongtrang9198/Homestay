@@ -13,33 +13,18 @@ if(isset($_SESSION['TenKH'])){
   <head>
     <meta charset="utf-8">
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-    <!-- Popper JS -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
-
-    <!-- Latest compiled JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
-   <!-- FIle chinh css thu cong -->
-   <!-- <link rel="stylesheet" href="Trangchu.css"> -->
-   <!-- <script src="Link.js"></script> -->
-
-   <script src="Dangky.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="Trangchu.css">
+   <script src="Khachhang.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-   <!-- import js -->
-   <script src="Link.js"></script>
-   <script src="Dangky.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
    <title>Moon's Homestay Welcome!</title>
 
   </head>
@@ -53,12 +38,13 @@ if(isset($_SESSION['TenKH'])){
  ?>
 
   <!-- noi dung chinh -->
-<div class=" ">
+<div class="fluid-container">
     <br>
-  <div class="row">
+
           <!-- hien thi noi dung -->
-          <div class="col-lg-10 offset-1">
-            <div class="noidunght">
+          <!-- <div class="col-lg-10 offset-1"> -->
+  <div class="noidunght">
+
             <?php
                 if(isset($_GET['d'])){
                   $Noidung = $_GET['d'];
@@ -86,22 +72,28 @@ if(isset($_SESSION['TenKH'])){
                     case 'dangky':
                       require("Dangky.php");
                       break;
+                    case 'phongtrong':
+                      require("Phongtrong.php");
+                      break;
                     case 'Trangchu':
                       require("Trangchu1.php");
                       break;
-                    case 'cocphong':
-                      require ("Cocphong.php");
+                    case 'thanhtoanonline':
+                      require ("Thanhtoan.php");
                       break;
                     case 'dsphongtrong':
                       require("Phongtrong.php");
+                      break;
+                    case 'thongtinkhach':
+                      require("Thongtinkhach.php");
                       break;
                     default:
                       require("Trangchu1.php");
                       break;
                   }
              ?>
-             </div>
-          </div>
+
+          <!-- </div> -->
 
 
         </div>
@@ -124,7 +116,7 @@ if(isset($_SESSION['TenKH'])){
       </div>
       <div class="model-body">
         <a href="https://www.google.com/maps" class="nav-link"><span class="text-dark"> Bản đồ</span></a>
-        <a href="Trangchu.php?d=cocphong" class="nav-link"><span class="text-dark"> Cọc phòng</span></a>
+        <a href="Trangchu.php?d=thanhtoanonline" class="nav-link"><span class="text-dark">Thanh toán </span></a>
         <a href="mailto:moonhome@gmail.com?subject=Hotro" class="nav-link"><span class="text-dark"> Email</span></a>
         <a href="#footer" class="nav-link" ><span class="text-dark"> Thông tin</span></a>
   </div>
@@ -160,7 +152,7 @@ if(isset($_SESSION['TenKH'])){
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="model-body">
-        <a href="#" class="nav-link"><span class="text-dark"> <?php echo $tenKH; ?> </span></a> <!-- liên kết tới form đăng ký -->
+        <a href="Trangchu.php?d=thongtinkhach" class="nav-link"><span class="text-dark"> <?php echo $tenKH; ?> </span></a> <!-- liên kết tới form đăng ký -->
         <a href="Dangxuat.php" class="nav-link">
             <span class="text-dark">Đăng xuất</span></a>
       </div>
@@ -208,6 +200,8 @@ if(isset($_SESSION['TenKH'])){
     </div>
   </div>
   <!-- Ket thuc form-dang nhap -->
+
+
 <!-- ###############################Toast thông báo####################################### -->
 
   <!-- Toast thông báo -->
