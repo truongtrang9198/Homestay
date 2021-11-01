@@ -1,3 +1,4 @@
+-- trong mối quan hệ one to one: muốn chuyển sang PDM, thì chuyển OTO thành One to many rồi làm như bth
 create database Homestay;
 use Homestay;
 drop database homestay;
@@ -14,11 +15,13 @@ create table KhachHang (
 
 drop table KhachHang;
 create table TaiKhoan (
-	username varchar(5),
+	username varchar(5) ,
     passwd   char(32),
-    MSNV int,
-    foreign key(MSNV) references NhanVien(MSNV) on delete cascade
+    MSNV int unique,
+    -- foreign key(MSNV) references NhanVien(MSNV) on delete cascade
+    foreign key(MSNV) references Nhanvien(MSNV)
     );
+
 drop table TaiKhoan;
 create table NhanVien (
 	MSNV int not null primary key AUTO_INCREMENT,
@@ -46,27 +49,30 @@ create table Phong (
     );
 
 
-create table ChitietDP (
-
+create table Datphong (
+    MaDP int primary key auto_increment,
     MSP int,
-    MaDP int ,
+    MSKH int,
     Check_in date,
     Check_out date,
     Sodem int,
     Tienphong decimal(10,2),
-	primary key(MSP,MaDP)
-
-    );
-    drop table Chitiet;
-create table Datphong (
-	MaDP int primary key auto_increment,
-    MSKH int,
+    Trangthai varchar(30),
+	constraint FK_MSP foreign key(MSP) references Phong(MSP),
+    constraint FK_MSKH foreign key(MSKH) references Khachhang(MSKH)
+);
+    drop table Datphong;
+create table Hoadon (
+	MaHD int primary key auto_increment,
     MSNV int,
+    MaDP int,
 	Phikhac decimal(10,2),
     Thanhtoan varchar(30),
     Tongtien decimal(10,2),
     Ghichu varchar(100),
-    Thoihian timestamp
+    Thoigianlap timestamp,
+    constraint FK_MSNV foreign key(MSNV) references Nhanvien(MSNV),
+    constraint FK_MaDP foreign key(MaDP) references Datphong(MaDP)
 );
 
 create table _Admin(
