@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
         $("#ngayden").datepicker({
-        dateFormat: "dd-M-yy",
+        dateFormat: "dd-mm-yy",
         minDate: 0, // an cac ngay da qua
         onSelect: function (date) {
             var dt2 = $('#ngaydi');
@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
         });
         $('#ngaydi').datepicker({
-        dateFormat: "dd-M-yy",
+        dateFormat: "dd-mm-yy",
         changeMonth: true
         });
 });
