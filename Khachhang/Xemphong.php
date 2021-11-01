@@ -1,42 +1,24 @@
 <?php
-    include("../connect.php");
-    if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-    }
-    if(isset($_SESSION['MSKH'])){
-      $makhach = $_SESSION['MSKH'];
-    }else {
-      $makhach ='';
-    }
+  include("../connect.php");
  ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css"> -->
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-    
+
     <style media="screen">
       .form-search{
-        padding-left: 630px;
+        padding-left: 10px;
       }
     </style>
- <script src="Thoigian.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <input type="text" name="makhach" id="makhach" value="<?php echo $makhach; ?>" hidden>
+ <script src="Thoigian.js"></script>
+ <input type="text" name="makhach" value="<?php echo $makhach; ?>" hidden>
     <div class="form-search">
-      <form class="form-inline"  action="Phongtrong.php" method="get">
-        <label for="ngayden">Check in </label> &ensp;
+      <form class="form-inline"  action="Trangchu.php?d=phongtrong" method="post">
+        <label for="ngayden"> Check in </label> &ensp;
         <input type="text" name="ngayden" id="ngayden" value="" class="form-control" required> &ensp;
         <label for="ngaydi">-</label> &ensp;
         <input type="text" name="ngaydi" id="ngaydi" value="" class="form-control" required> &ensp;
-        <button type="submit" name="button" id="search" class="btn-primary">Tìm</button>
+        <button type="submit" name="button" id="search" class="btn">Tìm</button>
       </form>
     </div>
+<br>
 <!-- php hien hinh -->
 
 <?php
@@ -50,6 +32,7 @@
                 $url=mysqli_fetch_array(mysqli_query($conn,$sql));
  ?>
 
+ <!-- <div class="col-10 offset-1"> -->
 
     <div class="jumbotron" style="padding-top:5px;padding-bottom:5px;">
     <div class="d-flex flex-row">
@@ -81,34 +64,9 @@
     </div>
       </div>
     </div>
-  </body>
-</html>
+
+<!-- </div> -->
 <?php
   }
 }
  ?>
-<script type="text/javascript">
-  $(document).ready(function(){
-
-    // script đặt phòng
-      $(".form-datphong").submit(function(e){
-        e.preventDefault();
-        var makhach = $('#makhach').val();
-        var maphong = $(this).serialize();
-        var ngayden = $('#ngayden').val();
-        var ngaydi = $('#ngaydi').val();
-        if(makhach ==''){
-          $('#formDangnhap').modal('show');
-        }else{
-            if(ngayden !=='' && ngaydi !=''){
-                alert('hehe');
-            }else{
-                $('#toast-content-err').html('Bạn chưa chọn ngày!');
-                $('#Thongbaoloi').toast('show');
-                }
-        }
-      })
-
-
-  })
-</script>
