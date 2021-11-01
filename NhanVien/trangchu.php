@@ -6,11 +6,11 @@
     <style media="screen">
 
     body{
-      background-image: url(anh2.jpg);
+      background-image: url(trangchu2.jpg);
 
       background-size:cover;
       background-repeat: no-repeat;
-      background-position:top;
+      background-position:center;
     }
 
     </style>
