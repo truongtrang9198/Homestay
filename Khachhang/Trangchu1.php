@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style media="screen">
+
+<style media="screen">
       #xemngay{
         width: 120px !important;
       }
-    </style>
-  </head>
-  <body>
+</style>
+  <div class="col-10 offset-1">
+
+
     <div class="carousel slide" id="Anhphong" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="Anhphong" data-slide-to="0" class="active"></li>
@@ -81,8 +78,6 @@
           </div>
         </div>
     </div>
-  </body>
-</html>
 <script type="text/javascript">
 $('.carousel').carousel({
 interval: 2000
