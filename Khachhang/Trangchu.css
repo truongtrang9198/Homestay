@@ -1,4 +1,4 @@
-
+/* trang chu */
    html,body{
   background-color:#fafafa;
   }
@@ -89,3 +89,9 @@ nav{
     right: 0;
     /* z-index: 3; */
 }
+
+/* CSS  Đặt phòng*/
+  .btn-dangky{
+    background-color:  white;
+    color: gray;  
+  }
