@@ -153,18 +153,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Datphong` (makhach int, maphong int
  CREATE DEFINER=`root`@`localhost` PROCEDURE `Thongtindatphong` (makhach int) 
  begin 
 		select * from Datphong,Phong
-        where Datphong.MSP=Phong.MSP and Datphong.Trangthai not like 'Thanhcong' and Datphong.MSKH = makhach;
+        where Datphong.MSP=Phong.MSP and Datphong.Trangthai not like 'Thanhtoan' and Datphong.MSKH = makhach;
  end$$
  
   CREATE DEFINER=`root`@`localhost` PROCEDURE `Xemhoadon` (makhach int) 
  begin 
-		select * from Datphong,Hoadon
-        where Datphong.MSP=Phong.MSP and Datphong.Trangthai not like 'Thanhcong' and Datphong.MSKH = makhach;
+		select * from Datphong,Hoadon,Phong
+        where Datphong.MSP=Phong.MSP and Hoadon.MaDP=Datphong.MaDP and Datphong.MSKH = makhach;
  end$$
  
  
  delimiter ;
- drop procedure Phongdat;
+ drop procedure Thongtindatphong;
  call Phongdat(1,'2021-02-03','2021-03-12');
 call Thongtindatphong(3);
 
