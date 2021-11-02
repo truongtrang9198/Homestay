@@ -170,9 +170,8 @@ if(isset($_SESSION['TenKH'])){
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
+        <form class="form_dn" name="form_dn" id="form_dn" action="Xulydangnhap.php" method="post" >
         <div class="modal-body">
-          <form class="form_dn" name="form_dn" id="form_dn" action="Xulydangnhap.php" method="post" >
             <!-- input-group sdt -->
             <div class="input-group">
               <div class="input-group-prepend">
