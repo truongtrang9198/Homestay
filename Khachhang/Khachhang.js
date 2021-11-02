@@ -122,9 +122,81 @@ $('#btn-datphong').click(function(){
            }
          });
   }else{
-    // alert("  "+ngayden+" "+ngaydi);
+    alert("Lỗi!");
  }
 });
 
+// code js thong tin khách hàng //////////////////////////////////////////////////////////////////
+// cập nhật thông tin khách hàng
+$('#form-capnhattt').submit(function(event){
+  event.preventDefault();
+
+  var makhach = $('#makhachhang').val();
+  var hoten = $.trim($('#hoten').val());
+  var gioitinh = $("#gioitinh").val();
+  var cmnd = $.trim($('#cmnd').val());
+  var sdt = $('#sdt_dk').val();
+  var diachi = $.trim($('#diachi').val());
+  var email = $.trim($('#email').val());
+
+  // kiem tra ngay sinh, nếu đúng thì chuyển qua xử lý gửi lên server
+  var today = new Date();
+  var ngaysinh = $('#ngaysinh').val();
+//  alert(ngaysinh);
+  var ns = new Date(ngaysinh);
+  var tuoi = today.getFullYear() - ns.getFullYear();
+
+  if(tuoi > 18 && tuoi < 100){  // kiểm tra tuổi
+    $('#ngaysinh').css("border-color","");
+     // Kiểm tra mật khẩu
+        $.post("Xulycapnhat.php",{makhach:makhach,hoten:hoten,gioitinh:gioitinh,cmnd:cmnd,sdt:sdt,diachi:diachi,
+                                  email:email,ngaysinh:ngaysinh},function(data){
+                        if(data=="True"){ // nếu đăng ký thành công chuyển qua form để đăng nhập
+                            location.reload();
+
+                        }else{ // ngược lại hiển thị ra lỗi
+                          $('#toast-content-err').html(data);
+                          $('#Thongbaoloi').toast('show');
+                        }
+
+          });
+
+  }else{ // trường hơp tuổi sai
+    $('#toast-content').html('Bạn chưa đủ tuổi!');
+    $('#Hienthithongbao').toast('show');
+    $('#ngaysinh').css("border-color","red");
+  }
+});
+
+// cập nhật mật khẩu
+$('#form-matkhaumoi').submit(function(event){
+  event.preventDefault();
+  var matkhauhientai = $.trim($('#matkhauhientai').val());
+  var matkhaumoi = $.trim($('#mk_moi').val());
+  var xnmatkhaumoi = $.trim($('#xnmatkhaumoi').val());
+  if(matkhaumoi!=xnmatkhaumoi){
+    $('#mk_moi').css("border-color","red");
+    $('#xnmatkhaumoi').css("border-color","red");
+
+  }else{
+    $('#mk_moi').css("border-color","");
+    $('#xnmatkhaumoi').css("border-color","");
+    $.post("Capnhatmatkhau.php",{Pwd_hientai:matkhauhientai,Pwd_moi:matkhaumoi},function(data){
+          if(data=="true"){
+              alert("Cập nhật thành công!");
+              location.reload();
+          }else{
+            $('#err').html(data);
+          }
+    });
+  }
+})
+// Hủy cập nhật khẩu mới
+  $('#huy_mkmoi').click(function(){
+      $('#matkhauhientai').val('');
+      $('#mk_moi').val('');
+      $('#xnmatkhaumoi').val('');
+      $('#modal-matkhaumoi').modal('hide');
+  });
 
 })
