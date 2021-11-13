@@ -1,37 +1,20 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+}
+?>
   <head>
-    <meta charset="utf-8">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Nhanvien.css">
     <title>Trang chủ nhân viên</title>
-    <style media="screen">
-      header{
-        height: 80px;
-        width: inherit;
-        background-color: #1D5B8F;
-        color: white;
-        border: 1px black;
-        padding: 5px;
-      }
-      header >h3{
-        padding-top: 12px;
-      }
-      .navdrop{
-        /* background-color: #1D5B8F !important; */
-        box-shadow: 0px 8px 9px 0px rgba(69, 69, 69, 0.25);
-        /* margin-top: 100px;
-        padding-top: 10px; */
-        /* opacity: 0.0 - 1.0; */
-
-      }
-
-    </style>
   </head>
-  <body>
+
     <div class="fluid-container">
 
       <header>
@@ -45,12 +28,13 @@
       </header>
       <div class="navdrop">
       <nav class="navbar navbar-expand-md ">
-          <a class="nav-link navbar-brand" href="Nhanvien.php?d=trangchu"><i class="fas fa-moon " style="color: yellow;"></i> </a>
+          <a class="nav-link navbar-brand" href="index.php?d=trangchu"><i class="fas fa-moon " style="color: yellow;"></i> </a>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="Nhanvien.php?d=lichphong">Lịch đặt phòng</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="index.php?d=lichphong">Lịch đặt phòng</a> </li>
           <li class="nav-item"><a class="nav-link" href="https://thanhnien.vn/">Tin tức</a> </li>
           <li class="nav-item"><a class="nav-link" href="https://www.google.com/maps">Bản đồ</a> </li>
-          <li class="nav-item"><a class="nav-link" href="Nhanvien.php?d=hotroKH" >Hỗ trợ khách hàng </a> </li>
+          <li class="nav-item"><a class="nav-link" href="index.php?d=hotroKH" >Hỗ trợ khách hàng </a> </li>
+
         </ul>
         <!-- Tao dropdown menu thong tin nhan vien -->
         <ul class="navbar-nav ml-auto">
@@ -67,7 +51,7 @@
                  echo "User";
               ?> </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="ThongtinCanhan.php?d=<?php echo $usr; ?>">Thông tin cá nhân</a>
+                <a class="dropdown-item" href="index.php?d=thongtin">Thông tin cá nhân</a>
                 <!-- Tạo hàng ngang ở giữa -->
                 <div class="dropdown-divider"></div>
                 <a  class="dropdown-item" href="Dangxuat.php">Đăng xuất</a>
@@ -79,5 +63,14 @@
 </div>
 
     </div>
-  </body>
-</html>
+
+    <!-- Toast thông báo lỗi-->
+    <div class="toast" id="Thongbaoloi" data-autohide="false">
+    <div class="toast-header">
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+      <b>Hiển thị thông báo: </b>
+    </div>
+    <div class="toast-body text-danger" id="toast-content-err">
+
+    </div>
+    </div>
