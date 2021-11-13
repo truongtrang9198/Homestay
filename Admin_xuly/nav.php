@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -31,10 +30,8 @@
 
         }
       </style>
-    <title></title>
-
   </head>
-  <body>
+
     <?php
       session_start();
      ?>
@@ -100,6 +97,8 @@
                  </ul>
 
                </li>
+              <li> <a class="nav-link" href="Admin.php?d=xemthongke">Xem thống kê</a>
+                   </li>
              </ul>
 <!-- user -->
              <ul class="navbar-nav ml-auto">
@@ -118,6 +117,3 @@
 
 
 </div>
-
-  </body>
-</html>
