@@ -49,7 +49,7 @@ include("../connect.php");
             <th scope="row"> <?php echo $n ?> </th>
             <td id="ma"> <?php echo $row['MSP']; ?> </th>
             <td id="ten"> <?php echo $row['TenPhong'] ?> </th>
-            <td id="gia"><?php echo $row['Gia']; ?></th>
+            <td id="gia"><?php echo number_format($row['Gia']); ?></th>
             <td id="tenloai"><?php echo $row['TenLoai']; ?></th>
             <th scope="row"> <a style="color:black;" href="Suaphong.php?id= <?php echo $row['MSP']; ?>"> <i class="fas fa-edit"></i> </a> </th>
             <th scope="row" id="dete"> <a style="color:black;" href="Xoaphong.php?id= <?php echo $row['MSP']; ?>"> <i class="fas fa-trash-alt"></i> </a> </th>
