@@ -3,16 +3,10 @@
     include("nav.php");
     if(isset($_GET['id'])){
         $ma =  $_GET['id'];
-
+    }
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
-  <body>
     <div class="container">
       <?php
           $sql = " call ThongtinNhanvien('$ma')";
@@ -43,10 +37,10 @@
 
                     </div>
                     <div class="modal-body">
-                      <form class="form-group" enctype="multipart/form-data" method="post">
+                      <form class="form-group" enctype="multipart/form-data" id="anh_nv" method="post">
                         <input type="text" name="manv" id="manv" class="form-control text-muted" value=" <?php echo $ma; ?>" readonly>
                         <input type="file" name="img" class="form-control" id="img" value="" placeholder=".jpg\png" required>
-                        <p class="text-danger"></p>
+                        <p class="text-danger" id="loi-dinhdang"></p>
                       </form>
                     </div>
                     <div class="modal-footer">
@@ -96,8 +90,6 @@
       </div>
 
     </div>
-  </body>
-</html>
 <?php
 }
 }else{
@@ -111,12 +103,12 @@
  <script type="text/javascript">
       $(document).ready(function(){
     // Xử lý thêm ảnh
-        $('input').change(function(){
+        $('#img').change(function(){
           var img = $('#img').val();
           var dd_img= img.slice(img.indexOf('.')+1,img.length);
           var d_img = dd_img.toUpperCase();
           if(d_img == 'JPG' || d_img == 'GIF' || d_img == 'PNG'){
-            $('p').html(" ");
+            $('#loi-dinhdang').html(" ");
             $('#Up').click(function (e) {
               e.preventDefault();
               var manv = $('#manv').attr("name");
@@ -142,7 +134,7 @@
 
         });
           }else {
-            $('p').html("Ảnh không đúng định dạng!");
+            $('#loi-dinhdang').html("Ảnh không đúng định dạng!");
           }
         });
     // Hàm xoas nhan vien
