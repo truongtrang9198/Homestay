@@ -14,8 +14,6 @@
         die();
       }else
           echo("true");
-
-
 }else{
       echo("Tên đăng nhập không tồn tại!");
       die();
