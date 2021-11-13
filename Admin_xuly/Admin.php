@@ -54,6 +54,9 @@
             case 'tk_nv':
                   require "TaikhoanNhanvien.php";
                   break;
+            case 'xemthongke':
+                  require "Xemthongke.php";
+                  break;
             default:
                 require "Trangchu.php";
 
