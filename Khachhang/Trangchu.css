@@ -52,6 +52,7 @@ header{
     background-color: #1D5B8F;
     font-family:arial;
     padding-left: 50px;
+    color:white;
   }
   #loiket{
     text-align: center;
@@ -93,5 +94,5 @@ nav{
 /* CSS  Đặt phòng*/
   .btn-dangky{
     background-color:  white;
-    color: gray;  
+    color: gray;
   }
