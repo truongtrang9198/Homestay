@@ -20,8 +20,13 @@
 
         <div class="row" id=" ">
           <div class="col-2" id="thongtinkhach">
+            <!-- <div class="card"> -->
+              <!-- <div class="card-body"> -->
             <div class="row">
             <br>
+
+
+
               <!-- <p><span class="text-muted font-italic">Mã khách: </span><span class="text-center" ></span></p> -->
               <input type="text" id="makhach" name="" value="{makhach}" class="form-control-plaintext" hidden>
               <p><span class="text-muted font-italic">Họ tên khách: </span><span class="text-center"> <b>{Hoten}</b> </span></p>
@@ -36,12 +41,17 @@
               <p><span class="text-muted font-italic">Email: </span><span class="text-center">{email}</span></p>
 
               <p><span class="text-muted font-italic">Địa chỉ: </span><span class="text-center">{Diachi}</span></p>
+
             <br>
+
+
         </div>
         <div class="row" id="button-datphong">
         &ensp;&ensp; <button type="button" name="huy" class="btn1 btn btn-primary" id="matkhaumoi" data-toggle="modal" data-target="#modal-matkhaumoi">Mật Khẩu Mới</button> &ensp;
         <button type="submit" name="btn-datphong" class="btn1 btn btn-primary" id="btn-suathongtin" data-toggle="modal" data-target="#modal-suathongtin">Cập Nhật</button>
         </div>
+      <!-- </div> -->
+    <!-- </div> -->
       </div>
 
 <?php
