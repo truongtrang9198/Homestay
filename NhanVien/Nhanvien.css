@@ -1,0 +1,57 @@
+#thongtincanhan{
+  background-color: #fafafa;
+}
+/* footer */
+  .footer{
+    background-color: #1D5B8F;
+    font-family:arial;
+    padding-left: 50px;
+    color:white;
+
+  }
+  #loiket{
+    text-align: center;
+    color: white;
+    font-family:Dangrek;
+  }
+/* toast  */
+.toast{
+    background-color: white;
+    position:absolute;
+    top: 150px;
+    right: 0;
+    width: auto;
+      z-index:99;
+    /* z-index: 3; */
+}
+/* header */
+header{
+  height: 80px;
+  width: inherit;
+  background-color: #1D5B8F;
+  color: white;
+  border: 1px black;
+  padding: 5px;
+}
+header >h3{
+  padding-top: 12px;
+}
+.navdrop{
+  /* background-color: #1D5B8F !important; */
+  box-shadow: 0px 8px 9px 0px rgba(69, 69, 69, 0.25);
+  /* margin-top: 100px;
+  padding-top: 10px; */
+  /* opacity: 0.0 - 1.0; */
+
+}
+.btn{
+  background-color:#1D5B8F;
+  color: white;
+}
+.card{
+  padding-left:5px;
+}
+.body{
+  background-color: #fafafa;
+}
+/* end header */
