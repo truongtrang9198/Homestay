@@ -9,6 +9,7 @@
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <script src="Nhanvien.js"></script>
     <title>Đăng nhập tài khoản nhân viên</title>
       <style media="screen">
       body{
@@ -48,11 +49,12 @@
            <div class="form-login border">
              <h3 class="text-center">LOGIN</h3>
              <!-- <form class="form-group" action="Nhanvien.php?d=trangchu" onsubmit="return Kiemtra();"> -->
-             <form class="form-group" action="XulyDangnhap.php"   method="post">
+             <form class="form-group" action="XulyDangnhap.php" id="form-dangnhap"   method="post">
                 <label for="usr">Username</label>
                 <input type="text" name="usr" id="usr" class="form-control" value="" required>
                 <label for="pwd">Password</label>
                 <input type="password" name="pwd" id="pwd" class="form-control" value="" required> <br>
+                <p class="text-danger text-center" id="loi-dangnhap"></p>
                 <button type="submit" name="button" data-toggle="tooltip" title="Double Click!" class="btn-dark text-white" id="submit">Login</button>
              </form>
            </div>
@@ -69,27 +71,5 @@
 </html>
 <script type="text/javascript">
 
-  $(document).ready(function(){
-    $('form').submit(function(e){
-        e.preventDefault();
-        var usr = $('#usr').val();
-        var pwd = $('#pwd').val();
 
-           $.post("KiemtraDN.php",{usr:usr,pwd:pwd},function(data){
-             if(data =="true"){
-               $('form').unbind('submit');
-               $('#submit').click();
-
-             }
-              else {
-                  alert(data);
-                  return false;
-              }
-           });
-
-     });
-
-
-  })
-  $('[data-toggle="tooltip"]').tooltip();
 </script>
