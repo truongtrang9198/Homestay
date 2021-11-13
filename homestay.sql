@@ -163,12 +163,77 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Datphong` (makhach int, maphong int
  end$$
  
  
+ -- checkin hôm nay 
+  CREATE DEFINER=`root`@`localhost` PROCEDURE `Checkin_homnay` () 
+ begin 
+		select MaDP,Khachhang.HoTenKhach,Check_in,Check_out, Phong.TenPhong from Datphong,Khachhang,Phong
+        where Datphong.MSP = Phong.MSP and Datphong.MSKH=Khachhang.MSKH and Check_in = curdate();
+ end$$
+ 
+  -- tất cả check in  
+  CREATE DEFINER=`root`@`localhost` PROCEDURE `Tatca_checkin` () 
+ begin 
+		select MaDP,Khachhang.HoTenKhach,date(Check_in) as date,Check_out, Phong.TenPhong from Datphong,Khachhang,Phong
+        where Datphong.MSP = Phong.MSP and Datphong.MSKH=Khachhang.MSKH and Datphong.Trangthai = 'phongdat' order by date asc;
+ end$$
+  -- checkout hôm nay 
+  CREATE DEFINER=`root`@`localhost` PROCEDURE `Nhanphong` (madp int) 
+ begin 
+		if exists (select MaDP from Datphong where MaDP=madp and Check_in=curdate())
+        then 
+			update Datphong set Trangthai='Nhanphong' where MaDP=madp;
+		end if;
+ end$$
+ CREATE DEFINER=`root`@`localhost` PROCEDURE `Traphong` (msdp int) 
+ begin 
+		declare gia decimal(10,2);
+        declare sl int;
+        declare giathue decimal(10,2);
+        set gia = (select Gia from Phong,Datphong where Phong.MSP=Datphong.MSP and MaDP=msdp);
+        set sl = (select datediff(Check_out,curdate()) from Datphong where MaDP = msdp);
+        set giathue = gia*sl;
+		select Loaiphong.Tenloai,Phong.TenPhong,Check_in,Sodem,Tienphong,Trangthai,Loaidp
+        from Phong,Loaiphong,Datphong,Hoadon
+        where Phong.Maloai=Loaiphong.Maloai and Phong.MSP=Datphong.MSP
+			and Hoadon.MaDP=msdp and Datphong.MaDP=msdp;
+ end$$
+  
+   CREATE DEFINER=`root`@`localhost` PROCEDURE `Traphong` (msdp int) 
+ begin 
+		
+        declare sl int;
+        set sl = (select datediff(curdate(),Check_in) from Datphong where MaDP = msdp);
+		select Loaiphong.Tenloai,Phong.TenPhong,Check_in,sl,Gia,Trangthai,Loaidp
+        from Phong,Loaiphong,Datphong
+        where Phong.Maloai=Loaiphong.Maloai and Phong.MSP=Datphong.MSP and Datphong.MaDP=msdp;
+ end$$
+ 
+  CREATE DEFINER=`root`@`localhost` PROCEDURE `TaoHD` (msdp int,tongtien decimal(10,2), phikhac decimal(10,2), loaithanhtoan varchar(30),
+														ghichu varchar(100),manv int) 
+ begin 
+		insert into Hoadon (MSNV,MaDP,Phikhac,Thanhtoan,Tongtien,Ghichu) values(manv,msdp,phikhac,loaithanhtoan,tongtien,ghichu);
+ end$$
+  CREATE DEFINER=`root`@`localhost` PROCEDURE CapnhatDatphong (msdp int,tienphong decimal(10,2)) 
+ begin 
+		update Datphong set Tienphong=tienphong,Check_out=curdate(),Sodem=datediff(curdate(),Check_in),Trangthai='Thanhcong'
+        where MaDP = msdp;
+ end$$
+ 
+   CREATE DEFINER=`root`@`localhost` PROCEDURE LaythongtinHD (msdp int) 
+ begin 
+		select TenPhong,Gia,HoTenKhach,SDT,Email,DiaChi,Check_in,Check_out,Sodem,Tienphong,Loaidp,Phikhac,Thanhtoan,Tongtien,Ghichu from Hoadon,Phong,Datphong,Khachhang
+        where Datphong.MaDP = msdp and Datphong.MSP = Phong.MSP and Datphong.MSKH = Khachhang.MSKH and Hoadon.MaDP = msdp;
+ end$$
  delimiter ;
- drop procedure Thongtindatphong;
+ use Homestay;
+ drop procedure LaythongtinHD;
  call Phongdat(1,'2021-02-03','2021-03-12');
-call Thongtindatphong(3);
-
-
+call Checkout_homnay();
+select * from Datphong where Check_out = curdate();
+select * from Datphong where  Check_out = curdate();
+call Nhanphong(8);
+select Hoten_NV from Nhanvien,Hoadon where Hoadon.MSNV = Nhanvien.MSNV
+                and Hoadon.MaDP=7;
 -- --------------------------------------------------------
 
 --
@@ -278,7 +343,7 @@ INSERT INTO `loaiphong` (`Maloai`, `Tenloai`) VALUES
 --
 -- Table structure for table `nhanvien`
 --
-
+alter table Hoadon add column Thoigianlap datetime;
 CREATE TABLE `nhanvien` (
   `MSNV` int(11) NOT NULL,
   `Hoten_NV` varchar(50) NOT NULL,
