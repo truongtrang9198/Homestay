@@ -43,7 +43,7 @@ include_once("../connect.php");
           <br>
           <div class="row" id="button">
           &ensp;&ensp;  <button type="button" name="huy" class="btn1 btn btn-primary" id="huy">Hủy</button> &ensp;
-            <button type="submit" name="tieptuc" class="btn1 btn btn-primary" id="tieptuc">Tiếp tục</button>
+            <button type="submit" name="tieptuc" class="btn1 btn btn-primary" id="tieptuc">Đăng Ký</button>
           </div>
       </form>
     </div>
