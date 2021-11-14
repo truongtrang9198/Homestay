@@ -17,7 +17,6 @@ include("Header_nav.php");
 <body>
   <div class="container-fluid">
     <?php
-        include("Morong.php");
         switch ($nv) {
           case 'trangchu':
               include("trangchu.php");
@@ -25,24 +24,34 @@ include("Header_nav.php");
           case 'thongtin':
             require "ThongtinCanhan.php";
             break;
-          case 'lichphong':
-            require "Lichphong.php";
-            break;
           case 'homnay':
             include 'Homnay.php';
             break;
+         case 'datphongs':
+           include 'Datphongs.php';
+           break;
+        case 'datphong1':
+           include 'Datphong1.php';
+           break;
+        case 'datphongs1':
+          include 'Datphongs1.php';
+          break;
           case 'tatca_checkin':
             include("Tatca_checkin.php");
             break;
-          case 'tt_phong':
-            include 'Tinhtrangphong.php';
+          case 'datphong':
+            include 'Datphong.php';
+            break;
+          case 'phongtrong':
+            include 'Phongtrong.php';
             break;
           default:
             include 'Homnay.php';
+            break;
           }
 
         ?>
-    
+
     </div>
    </body>
 
