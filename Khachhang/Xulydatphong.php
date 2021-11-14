@@ -11,14 +11,18 @@ $trangthai = $_POST['trangthai'];
 
 // up len server
     // echo $ngayden;
- $sql = "insert into Datphong(MSP,MSKH,Check_in,Check_out,Sodem,Tienphong,Trangthai)
-         values('$maphong','$makhach','$ngayden','$ngaydi','$sodem','$thanhgia','$trangthai')";
+ $sql = "insert into Datphong(MSP,MSKH,Check_in,Check_out,Sodem,Tienphong,Trangthai,Loaidp)
+         values('$maphong','$makhach','$ngayden','$ngaydi','$sodem','$thanhgia','$trangthai','Online')";
 //$stmt->execute();
 if(mysqli_query($conn,$sql)){
   echo("true");
 }else{
   echo "Lỗi truy vấn!";
 }
-
+// xóa session khách
+if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+}
+  unset($_SESSION['MaKH']);
 
  ?>
