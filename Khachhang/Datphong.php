@@ -11,11 +11,6 @@
 
     <style media="screen">
 
-      .datphong{
-        /* border: 1px solid black; */
-        /* margin-bottom: 100px; */
-        background-color:#fafafa;
-      }
       #thongtinkhach{
         /* margin-left: 50px; */
         border-right: 2px solid black;
@@ -34,27 +29,30 @@
   <div class="datphong">
 
     <div class="row" id=" ">
-      <div class="col-2" id="thongtinkhach">
+      <div class="col-4" id="thongtinkhach">
         <br>
           <!-- <p><span class="text-muted font-italic">Mã khách: </span><span class="text-center" ></span></p> -->
           <input type="text" id="makhach" name="" value="{makhach}" class="form-control-plaintext" hidden>
-          <p><span class="text-muted font-italic">Họ tên khách: </span><span class="text-center"> <b>{Hoten}</b> </span></p>
+          <label for="">Họ tên khách:</label>
+          <input type="text" name="" value="{Hoten}" class="form-control" readonly>
+          <label for="">Ngày sinh:</label>
+          <input type="text" name="" value="{Ngaysinh}" class="form-control" readonly>
+          <label for="">Giới tính:</label>
+          <input type="text" name="" value="{Gioitinh}" class="form-control" readonly>
+          <label for="">CMND: </label>
+          <input type="text" name="" value="{CMND}" class="form-control" readonly>
+          <label for="">Số điện thoại:</label>
+          <input type="text" name="" value="{sdt}" class="form-control" readonly>
+          <label for="">Email:</label>
 
-          <p><span class="text-muted font-italic"> Ngày sinh: </span><span class="text-center">{Ngaysinh}</span></p>
-          <p><span class="text-muted font-italic">Giới tính: </span> <span class="text-center">{Gioitinh}</span></p>
-
-          <p><span class="text-muted font-italic">CMND: </span><span class="text-center">{CMND}</span></p>
-
-          <p><span class="text-muted font-italic">Số điện thoại: </span><span class="text-center">{sdt}</span></p>
-
-          <p><span class="text-muted font-italic">Email: </span><span class="text-center">{email}</span></p>
-
-          <p><span class="text-muted font-italic">Địa chỉ: </span><span class="text-center">{Diachi}</span></p>
+          <input type="text" name="" value="{email}" class="form-control" readonly>
+          <label for="">Địa chỉ:</label>
+          <input type="text" name="" value="{Diachi}" class="form-control" readonly>
         <br>
     </div>
-    <div class="col-10">
+    <div class="col-6 offset-1">
       <div class="row">
-      <table class="table" id="table-phongdat">
+      <table class="table " id="table-phongdat">
         <thead>
           <tr>
             <th>MSP</th>
