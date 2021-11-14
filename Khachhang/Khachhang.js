@@ -112,7 +112,7 @@ $('#btn-datphong').click(function(){
     $.post("Xulydatphong.php",{makhach:makhach,maphong:maphong,ngayden:ngayden,ngaydi:ngaydi,
          sodem:sodem,thanhgia:thanhgia,trangthai:trangthai},function(data){
            if(data=="true"){
-             alert("Đặt phòng thành công!")
+             alert("Đặt phòng thành công!");
              location.href = "Trangchu.php";
            }
 
