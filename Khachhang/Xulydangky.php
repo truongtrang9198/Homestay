@@ -7,7 +7,7 @@ $gioitinh = $_POST['gioitinh'];
 $sdt = $_POST['sdt'];
 $cmnd =$_POST['cmnd'] ;
 $ngaysinh = $_POST['ngaysinh'];
-$ngaysinh = date("d-m-Y",strtotime($ngaysinh));
+// $ngaysinh = date("d-m-Y",strtotime($ngaysinh));
 
 $diachi = $_POST['diachi'];
 $email = $_POST['email'];
