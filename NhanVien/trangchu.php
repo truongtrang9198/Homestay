@@ -7,6 +7,6 @@
       background-position:center;
     }
 </style>
-<div class="container-fluid">
-   <div class="body">
-</div>
+     <?php
+        include("Morong.php");
+      ?>
