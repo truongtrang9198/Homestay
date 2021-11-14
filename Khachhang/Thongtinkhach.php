@@ -1,7 +1,7 @@
  <style media="screen">
-   #thongtinkhach{
+   /* #thongtinkhach{
      border-right: 2px solid;
-   }
+   } */
  </style>
 <?php
 // Lấy mã khách
@@ -19,12 +19,11 @@
       <div class="thongtinkhach">
 
         <div class="row" id=" ">
-          <div class="col-2" id="thongtinkhach">
+          <div class="col-3" id="thongtinkhach">
             <!-- <div class="card"> -->
               <!-- <div class="card-body"> -->
-            <div class="row">
-            <br>
-
+            <div class="card">
+              <div class="card-body">
 
 
               <!-- <p><span class="text-muted font-italic">Mã khách: </span><span class="text-center" ></span></p> -->
@@ -41,17 +40,11 @@
               <p><span class="text-muted font-italic">Email: </span><span class="text-center">{email}</span></p>
 
               <p><span class="text-muted font-italic">Địa chỉ: </span><span class="text-center">{Diachi}</span></p>
-
-            <br>
-
+              <button type="button" name="huy" class="btn1 btn btn-primary" id="matkhaumoi" data-toggle="modal" data-target="#modal-matkhaumoi">Mật Khẩu Mới</button> &ensp;
+             <button type="submit" name="btn-datphong" class="btn1 btn btn-primary" id="btn-suathongtin" data-toggle="modal" data-target="#modal-suathongtin">Cập Nhật</button>
+              </div>
 
         </div>
-        <div class="row" id="button-datphong">
-        &ensp;&ensp; <button type="button" name="huy" class="btn1 btn btn-primary" id="matkhaumoi" data-toggle="modal" data-target="#modal-matkhaumoi">Mật Khẩu Mới</button> &ensp;
-        <button type="submit" name="btn-datphong" class="btn1 btn btn-primary" id="btn-suathongtin" data-toggle="modal" data-target="#modal-suathongtin">Cập Nhật</button>
-        </div>
-      <!-- </div> -->
-    <!-- </div> -->
       </div>
 
 <?php
@@ -73,9 +66,9 @@
   $s = str_replace("{makhach}",$makhach,$s);
   echo $s;
 ?>
-<div class="col-10">
+<div class="col-9">
 <!-- Hiển thị đơn đặt phòng của khách -->
-  <div class="row">
+  <div class="card">
   <h5>Trạng Thái Đặt Phòng</h5>
   <table class="table" id="trangthaidatphong">
     <thead>
@@ -139,7 +132,11 @@
 <!-- Hiển thị tất cả hóa đơn của khách hàng -->
 <div class="xemhoadon">
   <div class="row">
+    <div class="col-12">
+      <div class="card">
     <h5>Xem Hóa Đơn</h5>
+    <div class="card-body">
+
     <table class="table table-bordered" id="xemhoadon">
       <tr>
         <th>MaHD</td>
@@ -189,13 +186,17 @@
         $s = str_replace("{Tongtien}",number_format($row['Tongtien']),$s);
         $s = str_replace("{Thanhtoan}",$row['Thanhtoan'],$s);
         $s = str_replace("{Ghichu}",$row['Ghichu'],$s);
-        $s = str_replace("{Thoigian}",$row['Thoigian'],$s);
+        $s = str_replace("{Thoigian}",$row['Check_out'],$s);
 
         echo $s;
       }
        ?>
     </table>
+
   </div>
+</div>
+  </div>
+</div>
 </div>
 </div>
 <br>
@@ -261,11 +262,11 @@
     echo $str;
 
   ?>
-        <!-- Modal footer -->
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+<!-- modal đổi mật khẩu -->
 <div class="modal" id="modal-matkhaumoi">
   <div class="modal-dialog">
     <div class="modal-content">
